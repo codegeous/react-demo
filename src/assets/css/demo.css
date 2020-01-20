@@ -785,18 +785,17 @@
   margin-top: -7px;
   border-width: 7px 7px 7px 0;
 }
-
-.loading-container{
+.loader-container{
   position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f8f8f8ad;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F8F8F8AD;
 }
-.loading-container .loading{
+.loader{
   left: 50%;
-    top: 30%;
-    z-index: 1000;
-    position: absolute;
+  top: 30%;
+  z-index: 1000;
+  position: absolute;
 }

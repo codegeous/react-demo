@@ -29,8 +29,7 @@ import { style } from "variables/Variables.jsx";
 import routes from "routes.js";
 
 import image from "assets/img/sidebar-3.jpg";
-
-import PageLoader from "components/PageLoader/PageLoader";
+import FullPageLoader from "components/FullPageLoader/FullPageLoader";
 
 class Admin extends Component {
   constructor(props) {
@@ -136,8 +135,8 @@ class Admin extends Component {
           <Switch>{this.getRoutes(routes)}</Switch>
           <Footer />
         </div>
-
-        <PageLoader />
+        <FullPageLoader />
+        
       </div>
     );
   }

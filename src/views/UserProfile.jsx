@@ -34,22 +34,23 @@ import Button from "components/CustomButton/CustomButton.jsx";
 import avatar from "assets/img/faces/face-3.jpg";
 import { toggleLoader } from "actions/application";
 import Axios from "axios";
+import { showLoader } from "actions/application";
+import { hideLoader } from "actions/application";
 
 class UserProfile extends Component {
-
+  
   updateProfile = () =>{
+    this.props.dispatch( showLoader() )
 
-    const user = {
-      name: 'Test Name'
-    };
-    
-    this.props.dispatch( toggleLoader() );
-    Axios.post(`https://jsonplaceholder.typicode.com/users`, { user })
+    Axios.post(`https://jsonplaceholder.typicode.com/users`, { user : { name : 'Test User' } })
       .then(res => {
-        console.log(res);
-        console.log(res.data);
-        this.props.dispatch( toggleLoader() );
+        console.log( res );
+
+        this.props.dispatch( hideLoader() )
       })
+    /* setTimeout(() => {
+      this.props.dispatch( hideLoader() )
+    }, 2000); */
 
   }
 
@@ -161,7 +162,7 @@ class UserProfile extends Component {
                         </FormGroup>
                       </Col>
                     </Row>
-                    <Button bsStyle="info" pullRight fill onClick={this.updateProfile}>
+                    <Button bsStyle="info" pullRight fill onClick={this.updateProfile} >
                       Update Profile
                     </Button>
                     <div className="clearfix" />
